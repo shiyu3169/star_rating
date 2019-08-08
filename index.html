@@ -75,8 +75,8 @@
               <div class="stars-outer">
                 <div class="stars-inner"></div>
               </div>
+              <span class="number-rating"></span>
             </td>
-            <span class="number-rating"></span>
           </tr>
           <tr class="samsung">
             <td>Samsung 4K TV</td>
@@ -84,8 +84,8 @@
               <div class="stars-outer">
                 <div class="stars-inner"></div>
               </div>
+              <span class="number-rating"></span>
             </td>
-            <span class="number-rating"></span>
           </tr>
           <tr class="vizio">
             <td>Vizio 4K TV</td>
@@ -93,8 +93,8 @@
               <div class="stars-outer">
                 <div class="stars-inner"></div>
               </div>
+              <span class="number-rating"></span>
             </td>
-            <span class="number-rating"></span>
           </tr>
           <tr class="panasonic">
             <td>Panasonic 4K TV</td>
@@ -102,8 +102,8 @@
               <div class="stars-outer">
                 <div class="stars-inner"></div>
               </div>
+              <span class="number-rating"></span>
             </td>
-            <span class="number-rating"></span>
           </tr>
           <tr class="phillips">
             <td>Phillips 4K TV</td>
@@ -111,8 +111,8 @@
               <div class="stars-outer">
                 <div class="stars-inner"></div>
               </div>
+              <span class="number-rating"></span>
             </td>
-            <span class="number-rating"></span>
           </tr>
         </thead>
       </table>
@@ -183,6 +183,10 @@
           document.querySelector(
             `.${rating} .stars-inner`
           ).style.width = starPercentageRounded;
+
+          // Add number rating
+          document.querySelector(`.${rating} .number-rating`).innerHTML =
+            ratings[rating];
         }
       }
     </script>
