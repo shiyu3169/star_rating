@@ -53,6 +53,17 @@
           <option value="phillips">phillips 4K TV</option>
         </select>
       </div>
+      <div class="form-group">
+        <input
+          type="number"
+          id="rating-control"
+          class="form-control"
+          step="0.1"
+          max="5"
+          placeholder="Rate 1 - 5"
+          disabled
+        />
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -126,6 +137,37 @@
 
       // Run get Ratings when DOM loads
       document.addEventListener("DOMContentLoaded", getRatings);
+
+      // Form Elements
+      const productSelect = document.querySelector("#product-select");
+      const ratingControl = document.querySelector("#rating-control");
+
+      // Init product
+      let product;
+
+      // Product select
+      productSelect.addEventListener("change", e => {
+        product = e.target.value;
+        // Enable rating control
+        ratingControl.disabled = false;
+        ratingControl.value = ratings[product];
+      });
+
+      // Rating Control change
+      ratingControl.addEventListener("blur", e => {
+        const rating = e.target.value;
+
+        // Make sure 5 or under
+        if (rating > 5) {
+          alert("Please rate 1 - 5");
+          return;
+        }
+
+        // Change rating
+        ratings[product] = rating;
+
+        getRatings();
+      });
 
       // Get ratings
       function getRatings() {
